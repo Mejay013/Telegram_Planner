@@ -24,10 +24,9 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'Введите событие \n Пример 13.10/Новая задача/17:40/18:40')
         
 
-def create_event(date,task_name,time_end,time_start):
+def create_events(date,task_name,time_start,time_end):
     event = Event()
-    event.create_event(date,task_name,time_end,time_start)
-    print()
+    event.create_event(date,task_name,time_start,time_end)
 
 
 @bot.message_handler(content_types=['text']) #обработка текстовых сообщений
@@ -36,7 +35,7 @@ def get_text_messages(message):
     if event != None:
         if event == 'new_event':
             date,task_name,time_start,time_end = message.text.split('/')
-            print(date,task_name,time_end,time_start)
+            create_events(date,task_name,time_start,time_end)
 
 
 

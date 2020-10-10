@@ -40,6 +40,7 @@ class Event():
         creds = self.сreate_creds()
         
         service = build('calendar', 'v3', credentials=creds)
+
         event = {
             'summary': task_name,
             'start': {
