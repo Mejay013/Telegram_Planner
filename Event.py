@@ -44,11 +44,11 @@ class Event():
         event = {
             'summary': task_name,
             'start': {
-                'dateTime': f'2020-{self.normal_date(date)}T09:00:00-{time_start}',
+                'dateTime': f'2020-{self.normal_date(date)}T{time_start}:00',
                 'timeZone': 'Europe/Moscow',
             },
             'end': {
-                'dateTime': f'2020-{self.normal_date(date)}T09:00:00-{time_end}',
+                'dateTime': f'2020-{self.normal_date(date)}T{time_end}:00',
                 'timeZone': 'Europe/Moscow',
             },
             }

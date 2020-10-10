@@ -14,7 +14,7 @@ event = None
 def start_message(message):
     key_event = types.InlineKeyboardButton(text='Добавить событие', callback_data='new_event')
     keyboard.add(key_event)
-    bot.send_message(message.from_user.id, text='Выберите дейстиве', reply_markup=keyboard)
+    bot.send_message(message.from_user.id,text = 'Выберите дальнейшее действие', reply_markup=keyboard ) 
 
 @bot.callback_query_handler(func=lambda call: True) #обработка кнопок
 def callback_worker(call):
@@ -23,7 +23,7 @@ def callback_worker(call):
         event = 'new_event'
         bot.send_message(call.message.chat.id, 'Введите событие \n Пример 13.10/Новая задача/17:40/18:40')
         
-
+    
 def create_events(date,task_name,time_start,time_end):
     event = Event()
     event.create_event(date,task_name,time_start,time_end)
@@ -36,6 +36,7 @@ def get_text_messages(message):
         if event == 'new_event':
             date,task_name,time_start,time_end = message.text.split('/')
             create_events(date,task_name,time_start,time_end)
+            bot.send_message(message.from_user.id,text = 'Событие создано! \n Выберите дальнейшее действие', reply_markup=keyboard )  
 
 
 
