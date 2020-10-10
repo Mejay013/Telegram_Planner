@@ -9,6 +9,8 @@ __pycache__/
 # Distribution / packaging
 .Python
 stock.py
+credentials.json
+token.pickle
 build/
 develop-eggs/
 dist/
