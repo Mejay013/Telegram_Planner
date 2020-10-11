@@ -41,7 +41,8 @@ def set_keyboard():
 
 @bot.message_handler(content_types=['text']) #обработка текстовых сообщений
 def get_text_messages(message):
-    if event != None and message.from_user.id == stock.my_id:
+    print (stock.my_id == message.from_user.id)
+    if event != None:
         if event == 'new_event':
             date,task_name,time_start,time_end = message.text.split('/')
             create_events(date,task_name,time_start,time_end)
